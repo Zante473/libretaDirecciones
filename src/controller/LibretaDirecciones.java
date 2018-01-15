@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import model.Persona;
+import view.VistaPersonaController;
 
 /**
  *
@@ -35,6 +36,7 @@ public class LibretaDirecciones extends Application {
     public LibretaDirecciones(){
         
         datosPersona.add(new Persona("Daniel", "Zamarreño Avendaño"));
+        datosPersona.add(new Persona("Mauricio","Sanchez Moreno"));
         datosPersona.add(new Persona("Pablo", "Prieto Gutierrez"));
         datosPersona.add(new Persona("Alex Daniel", "Tomsa"));
         datosPersona.add(new Persona("Jairo", "Garcia Rincón"));
@@ -100,6 +102,9 @@ public class LibretaDirecciones extends Application {
 
         //Añado al centro del layoutPrincipal
         layoutPrincipal.setCenter(vistaPersona);
+        
+        VistaPersonaController controller = loader.getController();
+        controller.setLibretaDirecciones(this);
 
     }
 

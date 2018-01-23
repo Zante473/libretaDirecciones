@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditarPersonaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="430.0" styleClass="background" stylesheets="@../css/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditarPersonaController">
    <children>
       <GridPane layoutX="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <columnConstraints>
@@ -39,10 +39,10 @@
             <TextField fx:id="fechaDeNacimientoTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <HBox layoutX="215.0" layoutY="235.0" prefHeight="17.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <HBox layoutX="215.0" layoutY="235.0" prefHeight="28.0" prefWidth="220.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
             <Button mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="187.0" text="Guardar" />
-            <Button mnemonicParsing="false" onAction="#cancelar" prefHeight="25.0" prefWidth="180.0" text="Cancelar" />
+            <Button mnemonicParsing="false" onAction="#cancelar" prefHeight="28.0" prefWidth="197.0" text="Cancelar" />
          </children>
       </HBox>
    </children>

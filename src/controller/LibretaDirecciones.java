@@ -26,6 +26,7 @@ import javax.xml.bind.Unmarshaller;
 import model.Empaquetador;
 import model.Persona;
 import view.EditarPersonaController;
+import view.VistaEstadisticasController;
 import view.VistaPersonaController;
 import view.VistaPrincipalController;
 
@@ -38,8 +39,9 @@ public class LibretaDirecciones extends Application {
     private ObservableList datosPersona = FXCollections.observableArrayList();
     private Stage escenarioPrincipal;
     private BorderPane layoutPrincipal;
-    private AnchorPane vistaPersona, editarPersona;
+    private AnchorPane vistaPersona, editarPersona, vistaEstadisticas;
     private ObservableList FXColection;
+    
 
     //Datos de ejemplo:
     public LibretaDirecciones() {
@@ -160,6 +162,37 @@ public class LibretaDirecciones extends Application {
         //devuelvo el botón pulsado
         return controller.isGuardarClicked();
 
+    }
+    
+    public void crearGrafico() {
+        
+        //Cargo la vista estadísticas
+        FXMLLoader loader = new FXMLLoader();
+        URL location = LibretaDirecciones.class.getResource("/view/VistaEstadisticas.fxml");
+        loader.setLocation(location);
+        try {
+            vistaEstadisticas = loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(LibretaDirecciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //Inicializo un nuevo escenario y asigno el principal
+        Stage escenarioEstadisticas = new Stage();        
+        escenarioEstadisticas.setTitle("Estadísticas");
+        escenarioEstadisticas.initModality(Modality.WINDOW_MODAL); //Para que mientras yo no cierre esta ventana no pueda acceder a la anterior
+        escenarioEstadisticas.initOwner(escenarioPrincipal);
+        
+        //Cargo la escena que contiene ese layout de estadisticas
+        Scene escena = new Scene(vistaEstadisticas);
+        escenarioEstadisticas.setScene(escena);
+                    
+        //Asigno el controlador
+        VistaEstadisticasController controller = loader.getController();
+        controller.setDatosPersona(datosPersona);
+
+        //Muestro el escenario
+        escenarioEstadisticas.show();
+        
     }
 
     //Obtengo la ruta del archivo de la preferencias de usuario en Java

@@ -84,6 +84,12 @@ public class VistaPrincipalController {
             libretaDirecciones.guardaPersonas(archivo);
         }
     }
+    
+    //Gráfico
+    @FXML
+    private void grafico() {
+      libretaDirecciones.crearGrafico();
+    }
 
     //Acerca de
     @FXML

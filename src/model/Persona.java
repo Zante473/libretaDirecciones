@@ -12,6 +12,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import util.AdaptadorDeFechas;
 
 /**
  *
@@ -38,10 +40,10 @@ public class Persona {
         this.nombre = new SimpleStringProperty(nombre);
         this.apellidos = new SimpleStringProperty(apellidos);
         
-        this.direccion = new SimpleStringProperty("Mi dirección");
-        this.ciudad = new SimpleStringProperty("Mi ciudad");
-        this.codigoPostal = new SimpleIntegerProperty(28028);
-        this.fechaDeNacimiento = new SimpleObjectProperty(LocalDate.of(1984, 4, 14));
+        this.direccion = new SimpleStringProperty(null);
+        this.ciudad = new SimpleStringProperty(null);
+        this.codigoPostal = new SimpleIntegerProperty();
+        this.fechaDeNacimiento = new SimpleObjectProperty(LocalDate.of(1970, 1, 1));
          
     }
     
@@ -105,6 +107,7 @@ public class Persona {
         return codigoPostal;
     }
 
+   @XmlJavaTypeAdapter(AdaptadorDeFechas.class)
     public LocalDate getFechaDeNacimiento() {
         return (LocalDate) fechaDeNacimiento.get();
     }
